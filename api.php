@@ -15,10 +15,14 @@ use stala_libs\httpClient;
 
 class R_Auth
 {
-    public function __construct(string $api_id, string $api_pw, string $path)
+    public function __construct()
     {
-        $authInfo = [$api_id, $api_pw];
-        $this->client = new httpClient($path, $authInfo, _VER);
+        $this->client = new httpClient(_VER);
+    }
+
+    private function _wrapper($result)
+    {
+        return $result;
     }
 
     public function generate(string $rp_id, string $refer)
@@ -36,24 +40,20 @@ class R_Auth
     public function verify(string $rp_code, string $r_session)
     {
         $data = [
-            "type" => "verifyRSession",
-            "data" => [
-                "rp_code" => $rp_code,
-                "r_session" => $r_session
-            ]
+            "exec" => "verifyRSession",
+            "rp_code" => $rp_code,
+            "r_session" => $r_session
         ];
-        return $this->client->send($data);
+        return $this->_wrapper($this->client->send($data));
     }
 
     public function revoke(string $rp_code, string $r_session)
     {
         $data = [
-            "type" => "removeRSession",
-            "data" => [
-                "rp_code" => $rp_code,
-                "r_session" => $r_session
-            ]
+            "exec" => "removeRSession",
+            "rp_code" => $rp_code,
+            "r_session" => $r_session
         ];
-        return $this->client->send($data);
+        return $this->_wrapper($this->client->send($data));
     }
 }
