@@ -16,3 +16,5 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 The software following [Terms of Service](https://account.starinc.xyz/agreement.php) and [Privacy Policy](https://account.starinc.xyz/privacy.php) of startAccount.
+
+> The third party software licenses could be found in their root directory

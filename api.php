@@ -12,6 +12,7 @@ define("_VER", 1);
 include(__DIR__ . "/libs/autoloader.php");
 
 use stala_libs\httpClient;
+use firebaseJWT\JWT;
 
 class R_Auth
 {
@@ -44,7 +45,8 @@ class R_Auth
             "rp_code" => $rp_code,
             "r_session" => $r_session
         ];
-        return $this->_wrapper($this->client->send($data));
+        $result = $this->_wrapper($this->client->send($data));
+        return JWT::decode($result, $rp_code, ['HS256']);
     }
 
     public function revoke(string $rp_code, string $r_session)
