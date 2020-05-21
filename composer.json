@@ -1,0 +1,22 @@
+{
+    "name": "starinc/rauth_client",
+    "version": "2020.0",
+    "description": "startAccount R-Auth Client API",
+    "type": "library",
+    "require": {
+        "php": ">=7.2",
+        "firebase/php-jwt": "^5.2.0"
+    },
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "SuperSonic",
+            "email": "supersonic@livemail.tw"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RAUTH_CLIENT\\": "src/"
+        }
+    }
+}

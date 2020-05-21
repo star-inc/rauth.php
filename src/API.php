@@ -3,18 +3,16 @@
     startAccount R-Auth Client API
      ---
         For R-Auth website to authorize startAccount.
-                                                                License: AGPL 3.0
+                            License: Apache License 2.0
 */
 define("_VER", 1);
 //     Copyright(c) 2019 Star Inc. All Rights Reserved.
 
+namespace RAUTH_CLIENT;
 
-include(__DIR__ . "/libs/autoloader.php");
+use \Firebase\JWT\JWT;
 
-use stala_libs\httpClient;
-use firebaseJWT\JWT;
-
-class R_Auth
+class API
 {
     public function __construct()
     {

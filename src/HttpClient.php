@@ -1,16 +1,16 @@
 <?php
 // startAccount R-Auth Client API - stala_libs httpClient
-// License: AGPL 3.0
+// License: Apache License 2.0
 // (c) 2019 Star Inc.
 
-namespace stala_libs;
+namespace RAUTH_CLIENT;
 
-class httpClient
+class HttpClient
 {
     public function __construct(int $stalaVer)
     {
         $this->stalaVer = $stalaVer;
-        $this->host = "https://login.starinc.xyz/api/r-auth.php";
+        $this->host = "https://restapi.starinc.xyz/rauth";
     }
 
     public function send($data, $json_decode = 0)
