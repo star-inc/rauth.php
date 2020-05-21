@@ -13,13 +13,17 @@ class HttpClient
         $this->host = "https://restapi.starinc.xyz/rauth";
     }
 
-    public function send($data, $json_decode = 0)
-    {
+    public function send(
+        string $path,
+        string $data,
+        int $json_decode = 0
+    ) {
         $data_string = http_build_query($data);
+        $request_url = sprintf("%s/%s", $this->host, $path);
 
         $client = curl_init();
         curl_setopt($client, CURLOPT_POST, true);
-        curl_setopt($client, CURLOPT_URL, $this->host);
+        curl_setopt($client, CURLOPT_URL, $request_url);
         curl_setopt($client, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($client, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($client, CURLOPT_RETURNTRANSFER, true);

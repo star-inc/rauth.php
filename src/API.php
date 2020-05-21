@@ -25,6 +25,10 @@ class API
         return $result;
     }
 
+    private function httpGet(string $path, array $data) {
+        return $this->_wrapper($this->client->send($path, $data));
+    }
+
     public function generate(string $rp_id, string $refer)
     {
         $sta_center_host = "https://account.starinc.xyz";
@@ -39,22 +43,22 @@ class API
 
     public function verify(string $rp_code, string $r_session)
     {
+        $path = "verifyRSession";
         $data = [
-            "exec" => "verifyRSession",
             "rp_code" => $rp_code,
             "r_session" => $r_session
         ];
-        $result = $this->_wrapper($this->client->send($data));
+        $result = $this->httpGet($path, $data);
         return JWT::decode($result, $rp_code, ['HS256']);
     }
 
     public function revoke(string $rp_code, string $r_session)
     {
+        $path = "removeRSession";
         $data = [
-            "exec" => "removeRSession",
             "rp_code" => $rp_code,
             "r_session" => $r_session
         ];
-        return $this->_wrapper($this->client->send($data));
+        return $this->httpGet($path, $data);
     }
 }
