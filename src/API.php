@@ -5,18 +5,19 @@
         For R-Auth website to authorize startAccount.
                             License: Apache License 2.0
 */
-define("_VER", 1);
 //     Copyright(c) 2019 Star Inc. All Rights Reserved.
 
-namespace RAUTH_CLIENT;
+namespace RAuthClient;
 
+define("_VER", 1);
 use \Firebase\JWT\JWT;
+use \RAuthClient\HttpClient;
 
 class API
 {
     public function __construct()
     {
-        $this->client = new httpClient(_VER);
+        $this->client = new HttpClient(_VER);
     }
 
     private function _wrapper($result)

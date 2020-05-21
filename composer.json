@@ -16,7 +16,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "RAUTH_CLIENT\\": "src/"
+            "RAuthClient\\": "src/"
         }
     }
 }

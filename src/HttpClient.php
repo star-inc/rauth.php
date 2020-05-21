@@ -3,7 +3,7 @@
 // License: Apache License 2.0
 // (c) 2019 Star Inc.
 
-namespace RAUTH_CLIENT;
+namespace RAuthClient;
 
 class HttpClient
 {
